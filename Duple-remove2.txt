@@ -1,0 +1,32 @@
+ // Xu ly duplicate conflict
+            
+            for (i = 0; i < c1; i++)
+            {
+                int count = 0;
+                for (j = i + 1; j < c1; j++)
+                {
+                    if ((accessControlRules[i].Effect == accessControlRules[j].Effect) && (FunctionUtility.Convert(accessControlRules[i].Condition) == FunctionUtility.Convert(accessControlRules[j].Condition)))
+                    {
+                        Console.Write("***** Duplicate: rule"); Console.Write(accessControlRules[i].Id); Console.Write(" - rule "); Console.WriteLine(accessControlRules[j].Id);
+                        count++;
+                        //Call ham remove rule du thua;
+                        
+                        //accessControlRules_Deconflict.RemoveAt(i);
+
+                        //Console.Write(i);
+                    }
+                   
+                }
+
+                if (count == 0)
+                {
+                    accessControlRule_Deconflict = new ARule()
+                    {
+                        Id = accessControlRules[i].Id,
+                        Effect = accessControlRules[i].Effect,
+                        Condition = accessControlRules[i].Condition
+                    };
+                    accessControlRules_Deconflict.Add(accessControlRule_Deconflict);
+                }
+
+            }

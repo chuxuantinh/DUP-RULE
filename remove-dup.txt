@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+namespace CSharpExample
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            List<string> list = new List<string>
+            {
+                "A1", "A2", "A2", "A1", "A2", "A3", "A4", "A3"
+            };
+            List<string> new_list = new List<string>();
+            foreach (string item in list)
+            {
+                //If the item does not exist, add it to "new_list"
+                if (!new_list.Contains(item))
+                {
+                    new_list.Add(item);
+                }
+            }
+            //Display items in the list
+            foreach (string item in new_list)
+            {
+                Console.WriteLine("Item: {0}", item);
+            }
+        }
+    }
+}
